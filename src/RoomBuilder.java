@@ -40,5 +40,9 @@ public class RoomBuilder {
         return new SingleRoom(capacity, floor, roomNumber, isOccupied, isSmokingAllowed, hasBalcony);
     }
 
+    public Room buildDubleRoom(){
+        return new DoubleRoom(capacity, floor, roomNumber, isOccupied, isSmokingAllowed, hasBalcony);
+    }
+
 
 }

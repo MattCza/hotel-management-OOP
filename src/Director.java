@@ -7,4 +7,13 @@ public class Director {
                 .hasBalcony(false)
                 .isSmokingAllowed(false);
     }
+
+    public void defaultDoubleRoom(RoomBuilder roomBuilder){
+        roomBuilder.capacity(2)
+                .floor(2)
+                .roomNumber(27)
+                .isSmokingAllowed(false)
+                .hasBalcony(true)
+                .isOccupied(false);
+    }
 }

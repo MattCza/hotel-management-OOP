@@ -5,10 +5,13 @@ public class Main {
         Director director = new Director();
         director.defaultSingleRoom(roomBuilder);
 
-        Room singleRoom2 = roomBuilder.buildSingleRoom();
-        System.out.println(singleRoom2);
+        Room singleRoom1 = roomBuilder.buildSingleRoom();
+        System.out.println(singleRoom1);
 
-        Room singleRoom = new SingleRoom(2, 2, 27, false, true, true);
+        director.defaultDoubleRoom(roomBuilder);
+        Room doubleRoom1 = roomBuilder.buildDubleRoom();
+        System.out.println(doubleRoom1);
+
 
 
 
