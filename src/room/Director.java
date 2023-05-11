@@ -1,3 +1,5 @@
+package room;
+
 public class Director {
     public void defaultSingleRoom(RoomBuilder roomBuilder) {
         roomBuilder.capacity(2)
@@ -13,7 +15,7 @@ public class Director {
                 .floor(2)
                 .roomNumber(27)
                 .isSmokingAllowed(false)
-                .hasBalcony(true)
+                .hasBalcony(false)
                 .isOccupied(false);
     }
 }

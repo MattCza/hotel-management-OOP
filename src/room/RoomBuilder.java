@@ -1,3 +1,5 @@
+package room;
+
 public class RoomBuilder {
     private int capacity;
     private int floor;

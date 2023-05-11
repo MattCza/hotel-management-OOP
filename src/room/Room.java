@@ -1,3 +1,5 @@
+package room;
+
 public abstract class Room {
     private int capacity;
     private int floor;
