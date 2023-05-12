@@ -2,12 +2,14 @@ package room;
 
 public class Director {
     public void defaultSingleRoom(RoomBuilder roomBuilder) {
-        roomBuilder.capacity(2)
+        roomBuilder.roomNumber(27)
+                .price(100)
+                .capacity(2)
                 .floor(1)
                 .roomNumber(17)
-                .isOccupied(false)
+                .isSmokingAllowed(false)
                 .hasBalcony(false)
-                .isSmokingAllowed(false);
+                .isOccupied(false);
     }
 
     public void defaultDoubleRoom(RoomBuilder roomBuilder){
