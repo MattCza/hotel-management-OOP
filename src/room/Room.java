@@ -1,17 +1,19 @@
 package room;
 
 public abstract class Room {
+    private int roomNumber;
+    private double price;
     private int capacity;
     private int floor;
-    private int roomNumber;
     private boolean isOccupied;
     private boolean isSmokingAllowed;
     private boolean hasBalcony;
 
-    protected Room(int capacity, int floor, int roomNumber, boolean isOccupied, boolean isSmokingAllowed, boolean hasBalcony) {
+    protected Room(int roomNumber, double price, int capacity, int floor,  boolean isOccupied, boolean isSmokingAllowed, boolean hasBalcony) {
+        this.roomNumber = roomNumber;
+        this.price = price;
         this.capacity = capacity;
         this.floor = floor;
-        this.roomNumber = roomNumber;
         this.isOccupied = isOccupied;
         this.isSmokingAllowed = isSmokingAllowed;
         this.hasBalcony = hasBalcony;

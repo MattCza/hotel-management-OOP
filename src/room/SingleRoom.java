@@ -2,7 +2,7 @@ package room;
 
 public class SingleRoom extends Room {
 
-    SingleRoom(int capacity, int floor, int roomNumber, boolean isOccupied, boolean isSmokingAllowed, boolean hasBalcony) {
-        super(capacity, floor, roomNumber, isOccupied, isSmokingAllowed, hasBalcony);
+    SingleRoom(int roomNumber, double price, int capacity, int floor, boolean isOccupied, boolean isSmokingAllowed, boolean hasBalcony) {
+        super(roomNumber, price, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
     }
 }
