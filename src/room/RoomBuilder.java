@@ -1,12 +1,23 @@
 package room;
 
 public class RoomBuilder {
+    private int roomNumber;
+    private double price;
     private int capacity;
     private int floor;
-    private int roomNumber;
     private boolean isOccupied;
     private boolean isSmokingAllowed;
     private boolean hasBalcony;
+
+    public RoomBuilder roomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+        return this;
+    }
+
+    public RoomBuilder price(double price) {
+        this.price = price;
+        return this;
+    }
 
     public RoomBuilder capacity(int capacity){
         this.capacity = capacity;
@@ -15,11 +26,6 @@ public class RoomBuilder {
 
     public RoomBuilder floor(int floor) {
         this.floor = floor;
-        return this;
-    }
-
-    public RoomBuilder roomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
         return this;
     }
 
@@ -39,11 +45,11 @@ public class RoomBuilder {
     }
 
     public Room buildSingleRoom(){
-        return new SingleRoom(capacity, floor, roomNumber, isOccupied, isSmokingAllowed, hasBalcony);
+        return new SingleRoom(roomNumber, price, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
     }
 
     public Room buildDubleRoom(){
-        return new DoubleRoom(capacity, floor, roomNumber, isOccupied, isSmokingAllowed, hasBalcony);
+        return new DoubleRoom(roomNumber, price, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
     }
 
 

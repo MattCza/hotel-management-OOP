@@ -11,7 +11,9 @@ public class Director {
     }
 
     public void defaultDoubleRoom(RoomBuilder roomBuilder){
-        roomBuilder.capacity(2)
+        roomBuilder.roomNumber(27)
+                .price(100)
+                .capacity(2)
                 .floor(2)
                 .roomNumber(27)
                 .isSmokingAllowed(false)
