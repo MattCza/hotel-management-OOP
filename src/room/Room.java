@@ -23,6 +23,7 @@ public abstract class Room {
         return this.isOccupied;
     }
 
+    
     void occupy(){
         this.isOccupied = true;
     }
@@ -54,9 +55,10 @@ public abstract class Room {
     @Override
     public String toString() {
         return "Room{" +
-                "capacity=" + capacity +
+                "roomNumber=" + roomNumber +
+                ", price=" + price +
+                ", capacity=" + capacity +
                 ", floor=" + floor +
-                ", roomNumber=" + roomNumber +
                 ", isOccupied=" + isOccupied +
                 ", isSmokingAllowed=" + isSmokingAllowed +
                 ", hasBalcony=" + hasBalcony +
