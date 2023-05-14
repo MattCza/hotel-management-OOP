@@ -13,7 +13,7 @@ public class Booking {
 
     public double calculatePayment(Room room, boolean duringAnEvent){
         double basePrice = room.getBasePrice();
-        int numberOfAvailableRooms = hotel.getAvailableRooms().size();
+        int numberOfAvailableRooms = Hotel.getAvailableRooms().size();
 
         if (numberOfAvailableRooms <= 4) {
             basePrice *= 1.4;

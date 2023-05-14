@@ -27,6 +27,26 @@ public abstract class Room {
         return this.basePrice;
     }
 
+    public void setRoomNumber(int roomNumber){
+        this.roomNumber = roomNumber;
+    }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setSmokingAllowed(boolean smokingAllowed) {
+        isSmokingAllowed = smokingAllowed;
+    }
+
+    public void setHasBalcony(boolean hasBalcony) {
+        this.hasBalcony = hasBalcony;
+    }
+
     void occupy() {
         this.isOccupied = true;
     }
@@ -67,4 +87,15 @@ public abstract class Room {
                 ", hasBalcony=" + hasBalcony +
                 '}';
     }
+
+    public Room(Room room){
+        this.roomNumber = room.roomNumber;
+        this.basePrice = room.basePrice;
+        this.capacity = room.capacity;
+        this.floor = room.floor;
+        this.isOccupied = room.isOccupied;
+        this.isSmokingAllowed = room.isSmokingAllowed;
+        this.hasBalcony = room.hasBalcony;
+    }
+    public abstract Room clone();
 }

@@ -6,20 +6,18 @@ public class Director {
                 .basePrice(200)
                 .capacity(1)
                 .floor(1)
-                .roomNumber(17)
+                .isOccupied(false)
                 .isSmokingAllowed(false)
-                .hasBalcony(false)
-                .isOccupied(false);
+                .hasBalcony(false);
     }
 
     public void defaultDoubleRoom(RoomBuilder roomBuilder){
-        roomBuilder.roomNumber(27)
-                .basePrice(180)
+        roomBuilder.roomNumber(21)
+                .basePrice(360)
                 .capacity(2)
                 .floor(2)
-                .roomNumber(27)
+                .isOccupied(false)
                 .isSmokingAllowed(false)
-                .hasBalcony(false)
-                .isOccupied(false);
+                .hasBalcony(false);
     }
 }
