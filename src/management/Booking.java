@@ -27,4 +27,9 @@ public class Booking {
 
         return basePrice;
     }
+
+    public void searchRoom(){
+        
+    }
+
 }

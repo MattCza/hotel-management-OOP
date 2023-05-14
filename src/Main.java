@@ -6,7 +6,9 @@ import room.Director;
 import room.Room;
 import room.RoomBuilder;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,11 +16,9 @@ public class Main {
         init();
 
 
-
-
     }
 
-    private static void init(){
+    private static void init() {
         RoomBuilder roomBuilder = new RoomBuilder();
         Director director = new Director();
         director.defaultSingleRoom(roomBuilder);
@@ -45,20 +45,34 @@ public class Main {
         singleRoom15.setBasePrice(420);
 
         //  price 360; capacity 2; floor 1; isSmokingAllowed false; hasBalcony false;
+        director.defaultDoubleRoom(roomBuilder);
         Room doubleRoom21 = roomBuilder.buildDubleRoom();
 
-        System.out.println(singleRoom11);
+        Room doubleRoom22 = doubleRoom21.clone();
+        doubleRoom22.setRoomNumber(22);
 
-        Guest guest1 = new Guest("AVB6029735","Mark", "661163248" );
+        Room doubleRoom23 = doubleRoom21.clone();
+        doubleRoom23.setRoomNumber(23);
+        doubleRoom23.setCapacity(3);
+        doubleRoom23.setHasBalcony(true);
+        doubleRoom23.setBasePrice(420);
 
-        Employee employee1 = new Employee("John","Wick");
+        Guest guest1 = new Guest("AVB6029735", "Mark", "661163248");
 
-        new Hotel(new Room[]{singleRoom11});
+        Employee employee1 = new Employee("John", "Wick");
+        Employee employee2 = new Employee("Mark", "Spencer");
+        Employee employee3 = new Employee("Barbra", "Streisand");
+
+        Room[] rooms = new Room[]{singleRoom11, singleRoom12, singleRoom13, singleRoom14, singleRoom15, doubleRoom21, doubleRoom22, doubleRoom23};
+
+        new Hotel(rooms);
 
         Booking booking = new Booking();
 
-        List<Room> rooms = Hotel.getAvailableRooms();
-        System.out.println(rooms);
-        System.out.println(booking.calculatePayment(rooms.get(0), true));
+        List<Room> availableRooms = Hotel.getAvailableRooms();
+        
+        availableRooms.forEach(System.out::println);
+
+        System.out.println(booking.calculatePayment(availableRooms.get(0), true));
     }
 }
