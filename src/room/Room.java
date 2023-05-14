@@ -2,16 +2,16 @@ package room;
 
 public abstract class Room {
     private int roomNumber;
-    private double price;
+    private double basePrice;
     private int capacity;
     private int floor;
     private boolean isOccupied;
     private boolean isSmokingAllowed;
     private boolean hasBalcony;
 
-    protected Room(int roomNumber, double price, int capacity, int floor,  boolean isOccupied, boolean isSmokingAllowed, boolean hasBalcony) {
+    protected Room(int roomNumber, double basePrice, int capacity, int floor, boolean isOccupied, boolean isSmokingAllowed, boolean hasBalcony) {
         this.roomNumber = roomNumber;
-        this.price = price;
+        this.basePrice = basePrice;
         this.capacity = capacity;
         this.floor = floor;
         this.isOccupied = isOccupied;
@@ -19,28 +19,31 @@ public abstract class Room {
         this.hasBalcony = hasBalcony;
     }
 
-    boolean isOccupied() {
+    public boolean isOccupied() {
         return this.isOccupied;
     }
 
-    
-    void occupy(){
+    public double getBasePrice() {
+        return this.basePrice;
+    }
+
+    void occupy() {
         this.isOccupied = true;
     }
 
-    void vacate(){
+    void vacate() {
         this.isOccupied = false;
     }
 
-    int getFloor(){
+    int getFloor() {
         return this.floor;
     }
 
-    int getRoomNumber(){
+    int getRoomNumber() {
         return this.roomNumber;
     }
 
-    int getCapacity(){
+    int getCapacity() {
         return this.capacity;
     }
 
@@ -56,7 +59,7 @@ public abstract class Room {
     public String toString() {
         return "Room{" +
                 "roomNumber=" + roomNumber +
-                ", price=" + price +
+                ", price=" + basePrice +
                 ", capacity=" + capacity +
                 ", floor=" + floor +
                 ", isOccupied=" + isOccupied +

@@ -2,7 +2,7 @@ package room;
 
 public class RoomBuilder {
     private int roomNumber;
-    private double price;
+    private double basePrice;
     private int capacity;
     private int floor;
     private boolean isOccupied;
@@ -14,8 +14,8 @@ public class RoomBuilder {
         return this;
     }
 
-    public RoomBuilder price(double price) {
-        this.price = price;
+    public RoomBuilder basePrice(double basePrice) {
+        this.basePrice = basePrice;
         return this;
     }
 
@@ -45,11 +45,11 @@ public class RoomBuilder {
     }
 
     public Room buildSingleRoom(){
-        return new SingleRoom(roomNumber, price, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
+        return new SingleRoom(roomNumber, basePrice, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
     }
 
     public Room buildDubleRoom(){
-        return new DoubleRoom(roomNumber, price, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
+        return new DoubleRoom(roomNumber, basePrice, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
     }
 
 
