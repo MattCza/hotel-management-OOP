@@ -8,12 +8,15 @@ import room.RoomBuilder;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Main {
+
     public static void main(String[] args) {
 
         init();
+        menu();
 
 
     }
@@ -64,15 +67,52 @@ public class Main {
         Employee employee3 = new Employee("Barbra", "Streisand");
 
         Room[] rooms = new Room[]{singleRoom11, singleRoom12, singleRoom13, singleRoom14, singleRoom15, doubleRoom21, doubleRoom22, doubleRoom23};
-
         new Hotel(rooms);
+    }
 
-        Booking booking = new Booking();
+    private static void menu(){
+        boolean isTrue = true;
+        Scanner scanner = new Scanner(System.in);
 
         List<Room> availableRooms = Hotel.getAvailableRooms();
-        
-        availableRooms.forEach(System.out::println);
+        Booking booking = new Booking();
 
-        System.out.println(booking.calculatePayment(availableRooms.get(0), true));
+//        System.out.println(booking.calculatePayment(availableRooms.get(0), true));
+
+        System.out.println("Welcome to Hotel Management Console! ");
+        System.out.println("-------------------------------------");
+
+        while (isTrue){
+            int option;
+            System.out.println("1. - Show available rooms");
+            System.out.println("2. - Occupy a room");
+            System.out.println("3. - Vacate a room");
+            System.out.println("9. - Exit");
+            System.out.print("Option: ");
+            option = scanner.nextInt();
+            System.out.println();
+
+            switch (option){
+                case 1:
+                    availableRooms.forEach(System.out::println);
+                    break;
+                case 2:
+                    occupyRoom();
+                    break;
+                case 3:
+                    break;
+                case 9: isTrue = false;
+            }
+        }
+
     }
+
+    private static void occupyRoom() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("What room number you want to occupy: ");
+        int number = scanner.nextInt();
+
+    }
+
+
 }
