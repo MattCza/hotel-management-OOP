@@ -23,4 +23,25 @@ public class Hotel {
 
         return availableRooms;
     }
+
+    public static double calculatePayment(Room room, boolean duringAnEvent) {
+        double basePrice = room.getBasePrice();
+        int numberOfAvailableRooms = Hotel.getAvailableRooms().size();
+
+        if (numberOfAvailableRooms <= 4) {
+            basePrice *= 1.4;
+        } else if (numberOfAvailableRooms <= 10) {
+            basePrice *= 1.2;
+        }
+
+        if (duringAnEvent) {
+            basePrice *= 1.4;
+        }
+
+        return basePrice;
+    }
+
+    public void searchRoom() {
+
+    }
 }

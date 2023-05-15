@@ -2,34 +2,28 @@ package management;
 
 import people.Guest;
 import room.Room;
-
-import java.util.List;
+import java.time.LocalDate;
 
 public class Booking {
-    private Hotel hotel;
     private Guest guest;
     private Room room;
     private double payment;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public double calculatePayment(Room room, boolean duringAnEvent){
-        double basePrice = room.getBasePrice();
-        int numberOfAvailableRooms = Hotel.getAvailableRooms().size();
-
-        if (numberOfAvailableRooms <= 4) {
-            basePrice *= 1.4;
-        } else if (numberOfAvailableRooms <= 10) {
-            basePrice *= 1.2;
-        }
-
-        if (duringAnEvent){
-            basePrice *= 1.4;
-        }
-
-        return basePrice;
+    public Booking(Guest guest, Room room, double payment, LocalDate startDate, LocalDate endDate) {
+        this.guest = guest;
+        this.room = room;
+        this.payment = payment;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
-    public void searchRoom(){
-        
+    @Override
+    public String toString() {
+        return "Booking - guest: " + guest.getName()
+                + " with ID number of " + guest.getIdNumber()
+                + ", rent a room of number: " + room.getRoomNumber()
+                + ", starting from: " + startDate + " - " + endDate;
     }
-
 }

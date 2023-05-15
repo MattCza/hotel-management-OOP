@@ -59,7 +59,7 @@ public abstract class Room {
         return this.floor;
     }
 
-    int getRoomNumber() {
+    public int getRoomNumber() {
         return this.roomNumber;
     }
 

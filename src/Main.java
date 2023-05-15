@@ -6,6 +6,7 @@ import room.Director;
 import room.Room;
 import room.RoomBuilder;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -60,14 +61,46 @@ public class Main {
         doubleRoom23.setHasBalcony(true);
         doubleRoom23.setBasePrice(420);
 
-        Guest guest1 = new Guest("AVB6029735", "Mark", "661163248");
+        Room[] rooms = new Room[]{singleRoom11, singleRoom12, singleRoom13, singleRoom14, singleRoom15, doubleRoom21, doubleRoom22, doubleRoom23};
+        new Hotel(rooms);
+
+        Guest guest1 = new Guest("AVB6029735", "Ryan", "616163248");
+        Guest guest2 = new Guest("ACA5125731", "Kelly", "161636842");
+        Guest guest3 = new Guest("ACA5125731", "Jim", "523526527");
+        Guest guest4 = new Guest("ACA5125731", "Michael", "707242343");
 
         Employee employee1 = new Employee("John", "Wick");
         Employee employee2 = new Employee("Mark", "Spencer");
         Employee employee3 = new Employee("Barbra", "Streisand");
 
-        Room[] rooms = new Room[]{singleRoom11, singleRoom12, singleRoom13, singleRoom14, singleRoom15, doubleRoom21, doubleRoom22, doubleRoom23};
-        new Hotel(rooms);
+
+        Booking booking1 = new Booking(guest1,
+                doubleRoom21,
+                Hotel.calculatePayment(doubleRoom21, false),
+                LocalDate.parse("2023-03-20"),
+                LocalDate.parse("2023-03-22"));
+
+        Booking booking2 = new Booking(guest2,
+                doubleRoom21,
+                Hotel.calculatePayment(doubleRoom21, false),
+                LocalDate.parse("2023-03-27"),
+                LocalDate.parse("2023-03-29"));
+
+        Booking booking3 = new Booking(guest3,
+                singleRoom11,
+                Hotel.calculatePayment(singleRoom11, true),
+                LocalDate.parse("2023-03-01"),
+                LocalDate.parse("2023-03-02"));
+
+        Booking booking4 = new Booking(guest4,
+                singleRoom12,
+                Hotel.calculatePayment(singleRoom11, true),
+                LocalDate.parse("2023-03-01"),
+                LocalDate.parse("2023-03-02"));
+
+
+
+        System.out.println(booking1);
     }
 
     private static void menu(){
@@ -75,9 +108,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         List<Room> availableRooms = Hotel.getAvailableRooms();
-        Booking booking = new Booking();
 
-//        System.out.println(booking.calculatePayment(availableRooms.get(0), true));
 
         System.out.println("Welcome to Hotel Management Console! ");
         System.out.println("-------------------------------------");
@@ -100,6 +131,7 @@ public class Main {
                     occupyRoom();
                     break;
                 case 3:
+                    vacateRoom();
                     break;
                 case 9: isTrue = false;
             }
@@ -107,10 +139,15 @@ public class Main {
 
     }
 
+    private static void vacateRoom() {
+
+    }
+
     private static void occupyRoom() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What room number you want to occupy: ");
         int number = scanner.nextInt();
+        scanner.close();
 
     }
 

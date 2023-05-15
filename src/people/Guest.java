@@ -11,4 +11,15 @@ public class Guest {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }
