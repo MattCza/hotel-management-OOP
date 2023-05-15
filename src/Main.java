@@ -99,11 +99,10 @@ public class Main {
                 LocalDate.parse("2023-03-02"));
 
 
-
-        System.out.println(booking1);
+        booking1.printBookingInformation();
     }
 
-    private static void menu(){
+    private static void menu() {
         boolean isTrue = true;
         Scanner scanner = new Scanner(System.in);
 
@@ -113,7 +112,7 @@ public class Main {
         System.out.println("Welcome to Hotel Management Console! ");
         System.out.println("-------------------------------------");
 
-        while (isTrue){
+        while (isTrue) {
             int option;
             System.out.println("1. - Show available rooms");
             System.out.println("2. - Occupy a room");
@@ -123,17 +122,11 @@ public class Main {
             option = scanner.nextInt();
             System.out.println();
 
-            switch (option){
-                case 1:
-                    availableRooms.forEach(System.out::println);
-                    break;
-                case 2:
-                    occupyRoom();
-                    break;
-                case 3:
-                    vacateRoom();
-                    break;
-                case 9: isTrue = false;
+            switch (option) {
+                case 1 -> availableRooms.forEach(System.out::println);
+                case 2 -> occupyRoom();
+                case 3 -> vacateRoom();
+                case 9 -> isTrue = false;
             }
         }
 
@@ -147,8 +140,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What room number you want to occupy: ");
         int number = scanner.nextInt();
-        scanner.close();
 
+
+        scanner.close();
     }
 
 

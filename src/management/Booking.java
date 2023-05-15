@@ -7,23 +7,24 @@ import java.time.LocalDate;
 public class Booking {
     private Guest guest;
     private Room room;
-    private double payment;
+    private double price;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Booking(Guest guest, Room room, double payment, LocalDate startDate, LocalDate endDate) {
+    public Booking(Guest guest, Room room, double price, LocalDate startDate, LocalDate endDate) {
         this.guest = guest;
         this.room = room;
-        this.payment = payment;
+        this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    @Override
-    public String toString() {
-        return "Booking - guest: " + guest.getName()
+    public void printBookingInformation(){
+        System.out.println("Guest: " + guest.getName()
                 + " with ID number of " + guest.getIdNumber()
                 + ", rent a room of number: " + room.getRoomNumber()
-                + ", starting from: " + startDate + " - " + endDate;
+                + ", starting from: " + startDate + " - " + endDate
+                + ", for a price: " + price);
     }
+
 }
