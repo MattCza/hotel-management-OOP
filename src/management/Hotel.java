@@ -4,6 +4,7 @@ import room.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Hotel {
     private static Room[] rooms = new Room[20];
@@ -41,7 +42,12 @@ public class Hotel {
         return basePrice;
     }
 
-    public void searchRoom() {
-
+    public static Optional<Room> getRoomByRoomNumber(int roomNumber) {
+        for (Room room : rooms) {
+            if (room.getRoomNumber() == roomNumber){
+                return Optional.of(room);
+            }
+        }
+        return Optional.empty();
     }
 }

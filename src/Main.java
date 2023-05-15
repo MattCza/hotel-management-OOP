@@ -9,6 +9,7 @@ import room.RoomBuilder;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -104,7 +105,6 @@ public class Main {
 
     private static void menu() {
         boolean isTrue = true;
-        Scanner scanner = new Scanner(System.in);
 
         List<Room> availableRooms = Hotel.getAvailableRooms();
 
@@ -113,15 +113,23 @@ public class Main {
         System.out.println("-------------------------------------");
 
         while (isTrue) {
-            int option;
+            int option = 9;
+            Scanner scanner = new Scanner(System.in);
             System.out.println("1. - Show available rooms");
             System.out.println("2. - Occupy a room");
             System.out.println("3. - Vacate a room");
             System.out.println("9. - Exit");
             System.out.print("Option: ");
-            option = scanner.nextInt();
-            System.out.println();
 
+
+            try {
+                option = scanner.nextInt();
+
+            } catch (Exception e){
+                System.out.println("Pleas provide an Integer value.");
+            }
+
+            System.out.println();
             switch (option) {
                 case 1 -> availableRooms.forEach(System.out::println);
                 case 2 -> occupyRoom();
@@ -140,9 +148,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What room number you want to occupy: ");
         int number = scanner.nextInt();
-
-
-        scanner.close();
+        Optional<Room> room = Hotel.getRoomByRoomNumber(number);
+        room.ifPresent(Room::occupy);
     }
 
 

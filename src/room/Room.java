@@ -47,7 +47,7 @@ public abstract class Room {
         this.hasBalcony = hasBalcony;
     }
 
-    void occupy() {
+    public void occupy() {
         this.isOccupied = true;
     }
 
