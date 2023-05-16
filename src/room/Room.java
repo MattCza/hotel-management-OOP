@@ -4,7 +4,7 @@ public abstract class Room {
     private int roomNumber;
     private double basePrice;
     private int capacity;
-    private int floor;
+    private final int floor;
     private boolean isOccupied;
     private boolean isSmokingAllowed;
     private boolean hasBalcony;

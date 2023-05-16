@@ -7,11 +7,10 @@ import room.Room;
 import room.RoomBuilder;
 
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -67,8 +66,8 @@ public class Main {
 
         Guest guest1 = new Guest("AVB6029735", "Ryan", "616163248");
         Guest guest2 = new Guest("ACA5125731", "Kelly", "161636842");
-        Guest guest3 = new Guest("ACA5125731", "Jim", "523526527");
-        Guest guest4 = new Guest("ACA5125731", "Michael", "707242343");
+        Guest guest3 = new Guest("BJP1125731", "Jim", "523526527");
+        Guest guest4 = new Guest("CDB5125731", "Michael", "707242343");
 
         Employee employee1 = new Employee("John", "Wick");
         Employee employee2 = new Employee("Mark", "Spencer");
@@ -104,29 +103,27 @@ public class Main {
     }
 
     private static void menu() {
-        boolean isTrue = true;
 
+        int option = -1;
         List<Room> availableRooms = Hotel.getAvailableRooms();
-
 
         System.out.println("Welcome to Hotel Management Console! ");
         System.out.println("-------------------------------------");
 
-        while (isTrue) {
-            int option = 9;
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("1. - Show available rooms");
-            System.out.println("2. - Occupy a room");
-            System.out.println("3. - Vacate a room");
-            System.out.println("9. - Exit");
-            System.out.print("Option: ");
+        while (option != 9) {
 
+            Scanner scanner = new Scanner(System.in);
+
+            printOptions();
 
             try {
                 option = scanner.nextInt();
 
+            } catch (InputMismatchException ex) {
+                System.out.println("Pleas provide an Integer value from 1 to " + );
             } catch (Exception e){
-                System.out.println("Pleas provide an Integer value.");
+                System.out.println("Unexpected error - Please try again.");
+                scanner.next();
             }
 
             System.out.println();
@@ -134,11 +131,21 @@ public class Main {
                 case 1 -> availableRooms.forEach(System.out::println);
                 case 2 -> occupyRoom();
                 case 3 -> vacateRoom();
-                case 9 -> isTrue = false;
             }
         }
 
     }
+
+    public static void printOptions(){
+        String[] options = {"1. - Show available rooms",
+                "2. - Occupy a room",
+                "3. - Vacate a room",
+                "9. - Exit"};
+        for (String option : options) {
+            System.out.println(option);
+        }
+    }
+
 
     private static void vacateRoom() {
 
