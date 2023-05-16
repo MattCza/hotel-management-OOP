@@ -103,24 +103,28 @@ public class Main {
     }
 
     private static void menu() {
-
-        int option = -1;
         List<Room> availableRooms = Hotel.getAvailableRooms();
+        int option = -1;
 
         System.out.println("Welcome to Hotel Management Console! ");
         System.out.println("-------------------------------------");
 
-        while (option != 9) {
-
+        while (option != 4) {
             Scanner scanner = new Scanner(System.in);
+            String[] availableOptions = {"1. - Show available rooms",
+                    "2. - Occupy a room",
+                    "3. - Vacate a room",
+                    "4. - Exit"};
 
-            printOptions();
+            for (String opt : availableOptions) {
+                System.out.println(opt);
+            }
 
             try {
                 option = scanner.nextInt();
 
             } catch (InputMismatchException ex) {
-                System.out.println("Pleas provide an Integer value from 1 to " + );
+                System.out.println("Pleas provide an Integer value from 1 to " + availableOptions.length);
             } catch (Exception e){
                 System.out.println("Unexpected error - Please try again.");
                 scanner.next();
@@ -134,16 +138,6 @@ public class Main {
             }
         }
 
-    }
-
-    public static void printOptions(){
-        String[] options = {"1. - Show available rooms",
-                "2. - Occupy a room",
-                "3. - Vacate a room",
-                "9. - Exit"};
-        for (String option : options) {
-            System.out.println(option);
-        }
     }
 
 
