@@ -1,6 +1,4 @@
-import management.Booking;
 import management.Hotel;
-import people.Employee;
 import people.Guest;
 import room.Director;
 import room.Room;
@@ -8,7 +6,6 @@ import room.RoomBuilder;
 
 import java.time.LocalDate;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -69,41 +66,9 @@ public class Main {
         Guest guest3 = new Guest("BJP1125731", "Jim", "523526527");
         Guest guest4 = new Guest("CDB5125731", "Michael", "707242343");
 
-        Employee employee1 = new Employee("John", "Wick");
-        Employee employee2 = new Employee("Mark", "Spencer");
-        Employee employee3 = new Employee("Barbra", "Streisand");
-
-
-        Booking booking1 = new Booking(guest1,
-                doubleRoom21,
-                Hotel.calculatePayment(doubleRoom21, false),
-                LocalDate.parse("2023-03-20"),
-                LocalDate.parse("2023-03-22"));
-
-        Booking booking2 = new Booking(guest2,
-                doubleRoom21,
-                Hotel.calculatePayment(doubleRoom21, false),
-                LocalDate.parse("2023-03-27"),
-                LocalDate.parse("2023-03-29"));
-
-        Booking booking3 = new Booking(guest3,
-                singleRoom11,
-                Hotel.calculatePayment(singleRoom11, true),
-                LocalDate.parse("2023-03-01"),
-                LocalDate.parse("2023-03-02"));
-
-        Booking booking4 = new Booking(guest4,
-                singleRoom12,
-                Hotel.calculatePayment(singleRoom11, true),
-                LocalDate.parse("2023-03-01"),
-                LocalDate.parse("2023-03-02"));
-
-
-        booking1.printBookingInformation();
     }
 
     private static void menu() {
-        List<Room> availableRooms = Hotel.getAvailableRooms();
         int option = -1;
 
         System.out.println("Welcome to Hotel Management Console! ");
@@ -132,21 +97,23 @@ public class Main {
 
             System.out.println();
             switch (option) {
-                case 1 -> availableRooms.forEach(System.out::println);
-                case 2 -> occupyRoom();
-                case 3 -> vacateRoom();
+                case 1 -> Hotel.getAvailableRooms().forEach(System.out::println);
+                case 2 -> occupyRoom(scanner);
+                case 3 -> vacateRoom(scanner);
             }
         }
 
     }
 
 
-    private static void vacateRoom() {
-
+    private static void vacateRoom(Scanner scanner) {
+        System.out.print("What room does guest rented: ");
+        int number = scanner.nextInt();
+        Optional<Room> room = Hotel.getRoomByRoomNumber(number);
+        room.ifPresent(Room::vacate);
     }
 
-    private static void occupyRoom() {
-        Scanner scanner = new Scanner(System.in);
+    private static void occupyRoom(Scanner scanner) {
         System.out.print("What room number you want to occupy: ");
         int number = scanner.nextInt();
         Optional<Room> room = Hotel.getRoomByRoomNumber(number);

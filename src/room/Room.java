@@ -51,7 +51,7 @@ public abstract class Room {
         this.isOccupied = true;
     }
 
-    void vacate() {
+    public void vacate() {
         this.isOccupied = false;
     }
 

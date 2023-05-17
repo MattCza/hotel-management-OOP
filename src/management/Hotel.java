@@ -13,6 +13,7 @@ public class Hotel {
         Hotel.rooms = rooms;
     }
 
+
     public static List<Room> getAvailableRooms() {
         List<Room> availableRooms = new ArrayList<>();
 
