@@ -43,6 +43,7 @@ public class Hotel {
         return basePrice;
     }
 
+
     public static Optional<Room> getRoomByRoomNumber(int roomNumber) {
         for (Room room : rooms) {
             if (room.getRoomNumber() == roomNumber){

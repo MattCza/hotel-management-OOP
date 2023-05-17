@@ -1,3 +1,4 @@
+import management.Booking;
 import management.Hotel;
 import people.Guest;
 import room.Director;
@@ -111,6 +112,8 @@ public class Main {
         int number = scanner.nextInt();
         Optional<Room> room = Hotel.getRoomByRoomNumber(number);
         room.ifPresent(Room::vacate);
+        
+
     }
 
     private static void occupyRoom(Scanner scanner) {
