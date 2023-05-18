@@ -91,7 +91,7 @@ public class Main {
 
             } catch (InputMismatchException ex) {
                 System.out.println("Pleas provide an Integer value from 1 to " + availableOptions.length);
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Unexpected error - Please try again.");
                 scanner.next();
             }
@@ -112,7 +112,7 @@ public class Main {
         int number = scanner.nextInt();
         Optional<Room> room = Hotel.getRoomByRoomNumber(number);
         room.ifPresent(Room::vacate);
-        
+
 
     }
 

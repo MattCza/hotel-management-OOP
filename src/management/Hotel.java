@@ -46,7 +46,7 @@ public class Hotel {
 
     public static Optional<Room> getRoomByRoomNumber(int roomNumber) {
         for (Room room : rooms) {
-            if (room.getRoomNumber() == roomNumber){
+            if (room.getRoomNumber() == roomNumber) {
                 return Optional.of(room);
             }
         }
