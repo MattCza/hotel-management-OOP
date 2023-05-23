@@ -1,6 +1,6 @@
 package room;
 
-public abstract class Room {
+public class Room {
     private int roomNumber;
     private double basePrice;
     private int capacity;
@@ -19,76 +19,7 @@ public abstract class Room {
         this.hasBalcony = hasBalcony;
     }
 
-    public boolean isOccupied() {
-        return this.isOccupied;
-    }
-
-    public double getBasePrice() {
-        return this.basePrice;
-    }
-
-    public void setRoomNumber(int roomNumber){
-        this.roomNumber = roomNumber;
-    }
-
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public void setSmokingAllowed(boolean smokingAllowed) {
-        isSmokingAllowed = smokingAllowed;
-    }
-
-    public void setHasBalcony(boolean hasBalcony) {
-        this.hasBalcony = hasBalcony;
-    }
-
-    public void occupy() {
-        this.isOccupied = true;
-    }
-
-    public void vacate() {
-        this.isOccupied = false;
-    }
-
-    int getFloor() {
-        return this.floor;
-    }
-
-    public int getRoomNumber() {
-        return this.roomNumber;
-    }
-
-    int getCapacity() {
-        return this.capacity;
-    }
-
-    boolean getHasBalcony() {
-        return this.hasBalcony;
-    }
-
-    boolean getIsSmokingAllowed() {
-        return this.isSmokingAllowed;
-    }
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "roomNumber=" + roomNumber +
-                ", price=" + basePrice +
-                ", capacity=" + capacity +
-                ", floor=" + floor +
-                ", isOccupied=" + isOccupied +
-                ", isSmokingAllowed=" + isSmokingAllowed +
-                ", hasBalcony=" + hasBalcony +
-                '}';
-    }
-
-    public Room(Room room){
+    public Room(Room room) {
         this.roomNumber = room.roomNumber;
         this.basePrice = room.basePrice;
         this.capacity = room.capacity;
@@ -97,5 +28,75 @@ public abstract class Room {
         this.isSmokingAllowed = room.isSmokingAllowed;
         this.hasBalcony = room.hasBalcony;
     }
-    public abstract Room clone();
+
+    @Override
+    public Room clone() throws CloneNotSupportedException {
+        super.clone();
+        return new Room(this);
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public double getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public boolean isOccupied() {
+        return isOccupied;
+    }
+
+    public void setOccupied(boolean occupied) {
+        isOccupied = occupied;
+    }
+
+    public boolean isSmokingAllowed() {
+        return isSmokingAllowed;
+    }
+
+    public void setSmokingAllowed(boolean smokingAllowed) {
+        isSmokingAllowed = smokingAllowed;
+    }
+
+    public boolean isHasBalcony() {
+        return hasBalcony;
+    }
+
+    public void setHasBalcony(boolean hasBalcony) {
+        this.hasBalcony = hasBalcony;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomNumber=" + roomNumber +
+                ", basePrice=" + basePrice +
+                ", capacity=" + capacity +
+                ", floor=" + floor +
+                ", isOccupied=" + isOccupied +
+                ", isSmokingAllowed=" + isSmokingAllowed +
+                ", hasBalcony=" + hasBalcony +
+                '}';
+    }
 }

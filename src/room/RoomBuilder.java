@@ -19,7 +19,7 @@ public class RoomBuilder {
         return this;
     }
 
-    public RoomBuilder capacity(int capacity){
+    public RoomBuilder capacity(int capacity) {
         this.capacity = capacity;
         return this;
     }
@@ -44,12 +44,8 @@ public class RoomBuilder {
         return this;
     }
 
-    public Room buildSingleRoom(){
-        return new SingleRoom(roomNumber, basePrice, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
-    }
-
-    public Room buildDubleRoom(){
-        return new DoubleRoom(roomNumber, basePrice, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
+    public Room buildRoom() {
+        return new Room(roomNumber, basePrice, capacity, floor, isOccupied, isSmokingAllowed, hasBalcony);
     }
 
 
