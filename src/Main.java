@@ -1,16 +1,17 @@
 import room.Room;
 import room.RoomBuilder;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
 
         Room[] rooms = initRooms();
-        Arrays.stream(rooms).forEach(System.out::println);
 
         Room room = findRoomByRoomNumber(12, rooms);
         System.out.println(room);
+        menu(rooms);
 
 
     }
@@ -61,7 +62,40 @@ public class Main {
         return null;
     }
 
-    public static void menu() {
-
+    public static void getAvailableRooms(Room[] rooms){
+        List<Room> availableRooms = new ArrayList<>();
+        availableRooms = Arrays.stream(rooms)
+                .filter(room -> !room.isOccupied())
+                .collect(Collectors.toList());
+        availableRooms.forEach(System.out::println);
     }
+
+    public static void occupyRoomByNumber(int number){
+        findRoomByRoomNumber(number, rooms)
+    }
+
+    public static void menu(Room[] rooms) {
+        Scanner scanner = new Scanner(System.in);
+        String[] options = new String[]{
+                "1 - Show all rooms",
+                "2 - Show available rooms",
+                "3 - Occupy a room",
+                "4 - Vacate a room",
+                "5 - Exit"
+        };
+        int option = 0;
+        while (option != options.length) {
+            System.out.println();
+            Arrays.stream(options).forEach(System.out::println);
+            option = scanner.nextInt();
+
+            switch (option) {
+                case 1 -> Arrays.stream(rooms).forEach(System.out::println);
+                case 2 -> getAvailableRooms(rooms);
+                case 3 -> System.out.println();
+                case 4 -> System.out.println();
+            }
+        }
+    }
+
 }
