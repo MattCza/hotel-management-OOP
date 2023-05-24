@@ -70,8 +70,11 @@ public class Main {
         availableRooms.forEach(System.out::println);
     }
 
-    public static void occupyRoomByNumber(int number){
-        findRoomByRoomNumber(number, rooms)
+    public static void occupyRoomByNumber(Room[] rooms){
+        Scanner scanner = new Scanner(System.in);
+
+        findRoomByRoomNumber(scanner.nextInt(), rooms);
+        
     }
 
     public static void menu(Room[] rooms) {
@@ -92,7 +95,7 @@ public class Main {
             switch (option) {
                 case 1 -> Arrays.stream(rooms).forEach(System.out::println);
                 case 2 -> getAvailableRooms(rooms);
-                case 3 -> System.out.println();
+                case 3 -> occupyRoomByNumber(rooms);
                 case 4 -> System.out.println();
             }
         }
