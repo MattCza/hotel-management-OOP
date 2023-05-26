@@ -72,9 +72,10 @@ public class Main {
 
     public static void occupyRoomByNumber(Room[] rooms){
         Scanner scanner = new Scanner(System.in);
-
-        findRoomByRoomNumber(scanner.nextInt(), rooms);
-        
+        System.out.println("What room number to rent?");
+        Room room = findRoomByRoomNumber(scanner.nextInt(), rooms);
+        assert room != null;
+        room.setOccupied(true);
     }
 
     public static void menu(Room[] rooms) {
